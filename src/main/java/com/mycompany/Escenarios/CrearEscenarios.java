@@ -1,6 +1,9 @@
 package com.mycompany.Escenarios;
 
+import com.mycompany.ControlJuego.controlJuego;
 import static com.mycompany.JFrame.JFrameEscenario.lblEscenario;
+import static com.mycompany.JFrame.JFrameEscenario.setFilass;
+import static com.mycompany.JFrame.JFrameEscenario.setMatrizCreada;
 import static com.mycompany.JFrame.JFramePrincipal.getEnemigo;
 import static com.mycompany.JFrame.JFramePrincipal.getJugador;
 import javax.swing.JButton;
@@ -32,6 +35,7 @@ public class CrearEscenarios {
             default:
                 break;
         }
+        setFilass(getFilas());
     }
 
     public Campo generarCampo() {
@@ -58,6 +62,7 @@ public class CrearEscenarios {
         boolean enemigo = true;
 
         obtenerTamaño(opcion);
+        
         matriz = new JButton[columnas][filas];
         Campo nuevoCampo = new Campo();
         for (int i = 0; i < getColumnas(); i++) {
@@ -99,6 +104,8 @@ public class CrearEscenarios {
                 if (contadorJugador >= getJugador().getVehiculosJugador().length) {
                     jugador = false;
                 }
+                controlJuego accion = new controlJuego();
+                matriz[i][j].addActionListener(accion);
                 lblEscenario.add(matriz[i][j]);
 
                 y += 50;
@@ -106,6 +113,7 @@ public class CrearEscenarios {
             x += 50;
             y = 10;
         }
+        setMatrizCreada(matriz);
     }
 
     public JButton[][] getMatriz() {

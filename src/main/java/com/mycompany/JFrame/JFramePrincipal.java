@@ -275,7 +275,7 @@ public class JFramePrincipal extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
       int opcion = Integer.parseInt(JOptionPane.showInputDialog("Ingrese un numero de 1 a 3"));
-      JFrameEscenario escenario = new JFrameEscenario(opcion);
+      JFrameVehiculoSeleccionado escenario = new JFrameVehiculoSeleccionado(opcion);
       escenario.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
